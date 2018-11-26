@@ -20,6 +20,10 @@ Initial objectives:
 	  newline per character, but otherwise seems to work well. Pasting from the SVG
 	  output is not possible.
 
+* **stripped-mathjax-2.7.5.1.tar.xz** \
+	First release, extract and use as: \
+	`<script src="./stripped-mathjax/MathJax.js?config=TeX-AMS_SVG-full" type="text/javascript"></script>`
+
 
 
 

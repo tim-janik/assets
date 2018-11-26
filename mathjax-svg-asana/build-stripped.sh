@@ -2,7 +2,7 @@
 set -xEeuo pipefail
 
 ODIR=stripped-mathjax
-BASE=stripped-mathjax
+BASE=stripped-mathjax-2.7.5.1
 
 # Construct stripped MathJax directory
 rm -fr $ODIR
