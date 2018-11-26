@@ -2,6 +2,7 @@
 set -xEeuo pipefail
 
 ODIR=stripped-mathjax
+BASE=stripped-mathjax
 
 # Construct stripped MathJax directory
 rm -fr $ODIR
@@ -77,12 +78,12 @@ rm  -r \
 __EOF
 
 # Figure packed size
-rm -f MathJax.tar.xz MathJax.tar.gz MathJax.tar.bz2 MathJax.tar.zst
-tar cf MathJax.tar $ODIR
-gzip -9 -k MathJax.tar
-bzip2 -9 -k MathJax.tar
-zstd -19 -k MathJax.tar
-xz -9 -k MathJax.tar
-ls -alSh MathJax.tar*
+rm -f $BASE.tar.xz $BASE.tar.gz $BASE.tar.bz2 $BASE.tar.zst
+tar cf $BASE.tar $ODIR
+gzip -9 -k $BASE.tar
+bzip2 -9 -k $BASE.tar
+zstd -19 -k $BASE.tar
+xz -9 -k $BASE.tar
+ls -alSh $BASE.tar*
 
 # rm -rf tmpsz && cp -a stripped-mathjax/ tmpsz && find tmpsz/ -type f -exec xz -9 {} \; && find tmpsz/ -type f -printf '%s %M %10s %T+ %p\n' | sort -n | sed 's/[^ ]* //'
