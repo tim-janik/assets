@@ -1,4 +1,4 @@
-= tim-janik.github.io/cdn
+# tim-janik.github.io/cdn
 
 https://tim-janik.github.io/cdn/
 
