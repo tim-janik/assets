@@ -3,6 +3,24 @@ set -xEeuo pipefail
 
 ODIR=stripped-mathjax
 BASE=stripped-mathjax-2.7.5.1
+MJDIR=MathJax-2.7.5
+
+# Fetch original MathJax
+echo "b72e09f94f457e02216d9db0609a9b55426c21194f4e3a15041a3a0b9c67e341  $MJDIR.zip" >.sum
+sha256sum -c .sum || (
+  wget -c "https://github.com/mathjax/MathJax/archive/${MJDIR#*-}.zip" -O $MJDIR.zip
+  sha256sum -c .sum
+)
+rm -f .sum
+
+# Extract and change WORKDIR
+rm -fr $MJDIR
+unzip -q $MJDIR.zip
+cd $MJDIR/
+
+# Adjust README.md
+cat ../README.md README.md >README.new
+mv README.new README.md
 
 # Construct stripped MathJax directory
 rm -fr $ODIR
@@ -77,9 +95,13 @@ rm  -r \
    extensions: ['[a11y]/accessibility-menu.js']
 __EOF
 
+# Create Tarball, cleanup, pop WORKDIR
+tar cf ../$BASE.tar $ODIR
+cd ..
+rm -fr $MJDIR
+
 # Figure packed size
 rm -f $BASE.tar.xz $BASE.tar.gz $BASE.tar.bz2 $BASE.tar.zst
-tar cf $BASE.tar $ODIR
 gzip -9 -k $BASE.tar
 bzip2 -9 -k $BASE.tar
 zstd -19 -k $BASE.tar
