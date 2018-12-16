@@ -2,7 +2,7 @@
 set -xEeuo pipefail
 
 ODIR=stripped-mathjax
-BASE=stripped-mathjax-2.7.5.1
+BASE=stripped-mathjax-2.7.5.2
 MJDIR=MathJax-2.7.5
 
 # Fetch original MathJax
