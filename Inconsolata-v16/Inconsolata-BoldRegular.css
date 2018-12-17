@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url(QldKNThLqRwH-OJ1UHjlKGlZ5q4.woff) format('woff');
+}
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Inconsolata Bold'), local('Inconsolata-Bold'), url(QldXNThLqRwH-OJ1UHjlKGHiw71p5_o.woff) format('woff');
+}
